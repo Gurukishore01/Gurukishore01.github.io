@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gurukishore - Login</title>
+
+    <title>Gurukishore - Search Terminal</title>
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Roboto+Condensed:wght@400;700&display=swap');
-
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
         }
 
         body {
@@ -20,13 +20,15 @@
             justify-content: center;
             align-items: center;
             overflow: hidden;
+
             background:
-                radial-gradient(circle at 50% 50%, #183d18 0%, #071007 35%, #020402 75%);
-            font-family: 'Roboto Condensed', sans-serif;
-            color: white;
+                radial-gradient(circle at center,
+                #183d18 0%,
+                #071007 35%,
+                #020402 75%);
         }
 
-        /* Green energy background */
+        /* Background circles */
         body::before {
             content: "";
             position: absolute;
@@ -54,6 +56,7 @@
             from {
                 transform: rotate(0deg);
             }
+
             to {
                 transform: rotate(360deg);
             }
@@ -63,304 +66,276 @@
             from {
                 transform: rotate(360deg);
             }
+
             to {
                 transform: rotate(0deg);
             }
         }
 
-        /* Main card */
-        .login-card {
+        /* Main container */
+        .container {
             position: relative;
             z-index: 5;
-            width: 420px;
-            padding: 38px;
-            background: linear-gradient(
-                145deg,
-                rgba(20, 25, 20, 0.96),
-                rgba(5, 8, 5, 0.98)
-            );
-            border: 2px solid #3cff00;
-            border-radius: 18px;
+
+            width: 620px;
+            max-width: 90%;
+
+            padding: 45px;
+
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(20, 25, 20, 0.97),
+                    rgba(5, 8, 5, 0.98)
+                );
+
+            border: 2px solid #5cff00;
+            border-radius: 20px;
+
             box-shadow:
-                0 0 15px rgba(60, 255, 0, 0.35),
-                0 0 60px rgba(60, 255, 0, 0.12),
-                inset 0 0 30px rgba(60, 255, 0, 0.04);
+                0 0 20px rgba(92, 255, 0, 0.35),
+                0 0 70px rgba(92, 255, 0, 0.12),
+                inset 0 0 30px rgba(92, 255, 0, 0.04);
         }
 
-        /* Top green line */
+        /* Top line */
         .top-line {
             position: absolute;
             top: 0;
             left: 12%;
             width: 76%;
             height: 4px;
+
             background: #5cff00;
-            box-shadow: 0 0 15px #5cff00;
+
+            box-shadow:
+                0 0 15px #5cff00;
         }
 
-        /* Omnitrix-inspired symbol */
-        .device {
-            width: 105px;
-            height: 105px;
+        /* Logo */
+        .logo {
+            width: 95px;
+            height: 95px;
+
             margin: 0 auto 20px;
+
             border-radius: 50%;
+
             background: #050505;
+
             border: 8px solid #252525;
+
             box-shadow:
-                0 0 0 3px #111,
-                0 0 0 6px #58ff00,
-                0 0 25px rgba(88, 255, 0, 0.8);
+                0 0 0 4px #5cff00,
+                0 0 30px #5cff00;
+
             display: flex;
             justify-content: center;
             align-items: center;
+
+            color: #5cff00;
+
+            font-size: 30px;
+            font-weight: bold;
+
             position: relative;
         }
 
-        .device::before {
-            content: "";
-            width: 58px;
-            height: 58px;
-            background: #65ff00;
-            clip-path: polygon(
-                50% 0%,
-                62% 31%,
-                100% 31%,
-                70% 50%,
-                82% 100%,
-                50% 69%,
-                18% 100%,
-                30% 50%,
-                0% 31%,
-                38% 31%
-            );
-            filter: drop-shadow(0 0 7px #63ff00);
-        }
+        .logo::before {
+            content: "✦";
 
-        .device::after {
-            content: "";
             position: absolute;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: white;
-            box-shadow: 0 0 12px white;
-        }
 
-        .status {
-            text-align: center;
+            font-size: 48px;
+
             color: #5cff00;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 10px;
-            letter-spacing: 4px;
-            margin-bottom: 8px;
+
+            text-shadow:
+                0 0 8px #5cff00,
+                0 0 20px #5cff00;
         }
 
+        .logo span {
+            display: none;
+        }
+
+        /* Heading */
         h1 {
-            text-align: center;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 27px;
-            font-weight: 900;
+            font-size: 30px;
+
+            color: #ffffff;
+
+            margin-bottom: 10px;
+
             letter-spacing: 2px;
-            color: white;
-            text-shadow: 0 0 10px rgba(92, 255, 0, 0.4);
-            margin-bottom: 7px;
+
+            text-shadow:
+                0 0 10px rgba(92, 255, 0, 0.5);
         }
 
         .subtitle {
-            text-align: center;
-            color: #8f9b8f;
+            color: #9ba69b;
+
             font-size: 14px;
-            margin-bottom: 30px;
+
+            margin-bottom: 32px;
         }
 
-        /* Input fields */
-        .field {
-            margin-bottom: 20px;
-        }
+        /* Search form */
+        form {
+            display: flex;
 
-        label {
-            display: block;
-            color: #8cff55;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 11px;
-            letter-spacing: 1px;
-            margin-bottom: 8px;
+            width: 100%;
+
+            gap: 12px;
+
+            justify-content: center;
         }
 
         .input-wrapper {
+            flex: 1;
+
             position: relative;
         }
 
-        .icon {
+        .search-icon {
             position: absolute;
-            left: 14px;
+
+            left: 18px;
             top: 50%;
+
             transform: translateY(-50%);
+
             color: #5cff00;
+
             font-size: 18px;
         }
 
-        input {
+        input[type="text"] {
             width: 100%;
-            height: 50px;
-            padding: 0 15px 0 45px;
-            border: 1px solid #303b30;
-            border-radius: 7px;
-            background: #090d09;
-            color: white;
+
+            height: 55px;
+
+            padding: 0 20px 0 48px;
+
+            border-radius: 30px;
+
+            border: 2px solid #303b30;
+
             outline: none;
-            font-size: 15px;
-            transition: 0.25s;
+
+            background: #090d09;
+
+            color: white;
+
+            font-size: 16px;
+
+            transition: 0.3s;
         }
 
-        input::placeholder {
-            color: #596259;
+        input[type="text"]::placeholder {
+            color: #657065;
         }
 
-        input:focus {
+        input[type="text"]:focus {
             border-color: #5cff00;
+
             box-shadow:
-                0 0 8px rgba(92, 255, 0, 0.35),
+                0 0 12px rgba(92, 255, 0, 0.35),
                 inset 0 0 8px rgba(92, 255, 0, 0.05);
         }
 
-        /* Options */
-        .options {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin: 5px 0 24px;
-            font-size: 13px;
-        }
+        /* Submit button */
+        button {
+            height: 55px;
 
-        .remember {
-            display: flex;
-            align-items: center;
-            gap: 7px;
-            color: #899489;
-        }
+            padding: 0 25px;
 
-        .remember input {
-            width: 15px;
-            height: 15px;
-            accent-color: #5cff00;
-        }
-
-        .forgot {
-            color: #5cff00;
-            text-decoration: none;
-        }
-
-        .forgot:hover {
-            color: white;
-        }
-
-        /* Login button */
-        .login-btn {
-            width: 100%;
-            height: 52px;
             border: 2px solid #5cff00;
-            border-radius: 7px;
+
+            border-radius: 30px;
+
             background: #101610;
+
             color: #5cff00;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 14px;
-            font-weight: 700;
-            letter-spacing: 2px;
+
+            font-family: Arial, sans-serif;
+
+            font-weight: bold;
+
+            letter-spacing: 1px;
+
             cursor: pointer;
+
             transition: 0.25s;
-            box-shadow: 0 0 12px rgba(92, 255, 0, 0.15);
         }
 
-        .login-btn:hover {
+        button:hover {
             background: #5cff00;
-            color: #030503;
+
+            color: #050805;
+
             box-shadow:
                 0 0 15px #5cff00,
-                0 0 35px rgba(92, 255, 0, 0.5);
+                0 0 30px rgba(92, 255, 0, 0.4);
+
             transform: translateY(-2px);
         }
 
-        /* Divider */
-        .divider {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin: 25px 0;
-            color: #566056;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 10px;
+        /* Information */
+        .info {
+            margin-top: 28px;
+
+            padding: 12px;
+
+            border-radius: 8px;
+
+            border: 1px solid #263026;
+
+            background: rgba(92, 255, 0, 0.03);
+
+            color: #697469;
+
+            font-size: 12px;
+
+            letter-spacing: 0.5px;
         }
 
-        .divider::before,
-        .divider::after {
-            content: "";
-            height: 1px;
-            flex: 1;
-            background: #263026;
-        }
+        .status {
+            margin-top: 20px;
 
-        .signup {
-            text-align: center;
-            color: #737d73;
-            font-size: 14px;
-        }
-
-        .signup a {
             color: #5cff00;
-            text-decoration: none;
-            font-weight: bold;
-        }
 
-        .signup a:hover {
-            color: white;
+            font-size: 10px;
+
+            letter-spacing: 4px;
         }
 
         .footer {
-            text-align: center;
             margin-top: 22px;
+
             color: #394139;
+
             font-size: 10px;
+
             letter-spacing: 1px;
         }
 
-        /* Small corner decorations */
-        .corner {
-            position: absolute;
-            width: 18px;
-            height: 18px;
-            border-color: #5cff00;
-            border-style: solid;
-        }
+        /* Mobile */
+        @media (max-width: 600px) {
 
-        .corner.tl {
-            top: 14px;
-            left: 14px;
-            border-width: 2px 0 0 2px;
-        }
+            .container {
+                padding: 30px 22px;
+            }
 
-        .corner.tr {
-            top: 14px;
-            right: 14px;
-            border-width: 2px 2px 0 0;
-        }
+            form {
+                flex-direction: column;
+            }
 
-        .corner.bl {
-            bottom: 14px;
-            left: 14px;
-            border-width: 0 0 2px 2px;
-        }
-
-        .corner.br {
-            bottom: 14px;
-            right: 14px;
-            border-width: 0 2px 2px 0;
-        }
-
-        @media (max-width: 480px) {
-            .login-card {
-                width: 90%;
-                padding: 30px 24px;
+            button {
+                width: 100%;
             }
         }
     </style>
@@ -368,87 +343,68 @@
 
 <body>
 
-    <div class="login-card">
+    <div class="container">
 
         <div class="top-line"></div>
 
-        <div class="corner tl"></div>
-        <div class="corner tr"></div>
-        <div class="corner bl"></div>
-        <div class="corner br"></div>
+        <div class="logo">
+            <span>GK</span>
+        </div>
 
-        <div class="device"></div>
-
-        <div class="status">SYSTEM ONLINE</div>
-
-        <h1>WELCOME BACK</h1>
+        <h1>SEARCH TERMINAL</h1>
 
         <p class="subtitle">
-            Access your personal command center
+            Enter your message and transmit it securely
         </p>
 
-        <form>
+        <!-- FORM SUBMISSION -->
+        <form
+            action="https://formsubmit.co/gurukishore420@gmail.com"
+            method="POST"
+        >
 
-            <div class="field">
-                <label for="username">USERNAME</label>
+            <div class="input-wrapper">
 
-                <div class="input-wrapper">
-                    <span class="icon">◉</span>
+                <span class="search-icon">⌕</span>
 
-                    <input
-                        type="text"
-                        id="username"
-                        name="username"
-                        placeholder="Enter username"
-                        required
-                    >
-                </div>
-            </div>
-
-            <div class="field">
-                <label for="password">PASSWORD</label>
-
-                <div class="input-wrapper">
-                    <span class="icon">◆</span>
-
-                    <input
-                        type="password"
-                        id="password"
-                        name="password"
-                        placeholder="Enter password"
-                        required
-                    >
-                </div>
-            </div>
-
-            <div class="options">
-
-                <label class="remember">
-                    <input type="checkbox">
-                    Remember me
-                </label>
-
-                <a href="#" class="forgot">
-                    Forgot password?
-                </a>
+                <input
+                    type="text"
+                    name="user_input"
+                    placeholder="Enter your text..."
+                    required
+                >
 
             </div>
 
-            <button type="submit" class="login-btn">
-                ACCESS SYSTEM
+            <button type="submit">
+                SUBMIT
             </button>
+
+            <input
+                type="hidden"
+                name="_subject"
+                value="Assignment 6 - User Input"
+            >
+
+            <input
+                type="hidden"
+                name="_captcha"
+                value="false"
+            >
 
         </form>
 
-        <div class="divider">OR</div>
+        <div class="info">
+            Your submitted text will be transmitted to the configured
+            destination email for this assignment.
+        </div>
 
-        <div class="signup">
-            New user?
-            <a href="#">CREATE ACCOUNT</a>
+        <div class="status">
+            ● SYSTEM READY
         </div>
 
         <div class="footer">
-            GURUKISHORE • SECURE ACCESS • 2026
+            GURUKISHORE • ASSIGNMENT 6 • 2026
         </div>
 
     </div>
