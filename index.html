@@ -1,23 +1,308 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Login Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gurukishore | Login</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #0f172a, #1e293b, #312e81);
+            overflow: hidden;
+        }
+
+        /* Background decoration */
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(2px);
+            opacity: 0.35;
+        }
+
+        .circle.one {
+            width: 300px;
+            height: 300px;
+            background: #6366f1;
+            top: -100px;
+            left: -80px;
+        }
+
+        .circle.two {
+            width: 250px;
+            height: 250px;
+            background: #06b6d4;
+            bottom: -80px;
+            right: -60px;
+        }
+
+        /* Login card */
+        .login-card {
+            position: relative;
+            width: 400px;
+            padding: 45px 40px;
+            border-radius: 24px;
+            background: rgba(255, 255, 255, 0.10);
+            border: 1px solid rgba(255, 255, 255, 0.20);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.40);
+            z-index: 2;
+        }
+
+        .logo {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 20px;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #6366f1, #06b6d4);
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #cbd5e1;
+            font-size: 14px;
+            margin-bottom: 32px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            color: #e2e8f0;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .input-box {
+            position: relative;
+        }
+
+        .input-box span {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 18px;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px 15px 14px 45px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 12px;
+            outline: none;
+            background: rgba(255, 255, 255, 0.08);
+            color: white;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        input::placeholder {
+            color: #94a3b8;
+        }
+
+        input:focus {
+            border-color: #818cf8;
+            background: rgba(255, 255, 255, 0.13);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.18);
+        }
+
+        .options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 5px 0 25px;
+            font-size: 13px;
+        }
+
+        .remember {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            color: #cbd5e1;
+        }
+
+        .remember input {
+            width: auto;
+            accent-color: #6366f1;
+        }
+
+        .forgot {
+            color: #a5b4fc;
+            text-decoration: none;
+        }
+
+        .forgot:hover {
+            text-decoration: underline;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #6366f1, #06b6d4);
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.30);
+        }
+
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(99, 102, 241, 0.40);
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 25px 0;
+            color: #94a3b8;
+            font-size: 12px;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .signup {
+            text-align: center;
+            color: #cbd5e1;
+            font-size: 14px;
+        }
+
+        .signup a {
+            color: #a5b4fc;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .signup a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 25px;
+            color: #64748b;
+            font-size: 11px;
+        }
+
+        @media (max-width: 480px) {
+            .login-card {
+                width: 90%;
+                padding: 35px 25px;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-    <h1>Login Page</h1>
+    <div class="circle one"></div>
+    <div class="circle two"></div>
 
-    <form>
-        <label>Username:</label>
-        <input type="text" name="username" placeholder="Enter username">
-        <br><br>
+    <div class="login-card">
 
-        <label>Password:</label>
-        <input type="password" name="password" placeholder="Enter password">
-        <br><br>
+        <div class="logo">GK</div>
 
-        <button type="submit">Login</button>
-    </form>
+        <h1>Welcome Back</h1>
+        <p class="subtitle">Login to your Gurukishore account</p>
+
+        <form>
+
+            <div class="input-group">
+                <label for="username">Username</label>
+
+                <div class="input-box">
+                    <span>👤</span>
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        placeholder="Enter your username"
+                        required
+                    >
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="password">Password</label>
+
+                <div class="input-box">
+                    <span>🔒</span>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Enter your password"
+                        required
+                    >
+                </div>
+            </div>
+
+            <div class="options">
+                <label class="remember">
+                    <input type="checkbox">
+                    Remember me
+                </label>
+
+                <a href="#" class="forgot">Forgot password?</a>
+            </div>
+
+            <button type="submit" class="login-btn">
+                Login
+            </button>
+
+        </form>
+
+        <div class="divider">OR</div>
+
+        <div class="signup">
+            Don't have an account?
+            <a href="#">Create Account</a>
+        </div>
+
+        <div class="footer">
+            © 2026 Gurukishore. All rights reserved.
+        </div>
+
+    </div>
 
 </body>
 </html>
